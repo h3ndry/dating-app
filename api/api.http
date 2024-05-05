@@ -3,13 +3,31 @@ api_HostAddress = http://localhost:5276
 
 
 GET http://localhost:5276/weatherforecast/
-Accept: application/json
+Content-Type: application/json
 
 
 GET {{api_HostAddress}}/api/users
-Accept: application/json
+Content-Type: application/json
 
 
 GET {{api_HostAddress}}/api/users/5
-Accept: application/json
+Content-Type: application/json
+
+
+
+POST {{api_HostAddress}}/api/account/register
+Content-Type: application/json
+{
+    "userName": "love",
+    "password": "strong_password"
+}
+
+http://localhost:5276
+
+POST http://localhost:5000/api/account/register
+Content-Type: application/json
+{
+    "userName": "love",
+    "password": "strong_password"
+}
 
