@@ -18,7 +18,7 @@ Content-Type: application/json
 POST {{api_HostAddress}}/api/account/register
 Content-Type: application/json
 {
-    "userName": "love",
+    "userName": "John",
     "password": "strong_password"
 }
 
@@ -26,14 +26,38 @@ Content-Type: application/json
 POST {{api_HostAddress}}/api/account/register
 Content-Type: application/json
 {
-    "userName": "tom",
+    "userName": "tomm",
     "password": "strong_password"
 }
 
 POST  {{api_HostAddress}}/api/account/login
 Content-Type: application/json
 {
-    "userName": "tom",
+    "userName": "tomm",
     "password": "strong_password"
 }
+
+
+POST {{api_HostAddress}}/api/account/register
+Content-Type: application/json
+{
+    "userName": "newUser",
+    "password": "password$1"
+}
+
+POST {{api_HostAddress}}/api/account/login
+Content-Type: application/json
+{
+    "userName": "newuser",
+    "password": "password$1"
+}
+
+
+
+
+
+
+
+
+
 

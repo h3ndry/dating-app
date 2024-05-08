@@ -10,7 +10,6 @@ namespace api.Controllers;
 
 public class AccountController : BaseApiController
 {
-
     private readonly DataContext _context;
     private readonly ITokenService _tokenService;
 
@@ -30,7 +29,7 @@ public class AccountController : BaseApiController
         var userNew = new AppUser
         {
             UserName = user.Username.ToLower(),
-            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.Username)),
+            passwordHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(user.Password)),
             passwordSalt = hmac.Key
         };
 
@@ -47,15 +46,16 @@ public class AccountController : BaseApiController
 
 
     [HttpPost("login")]
-    public async Task<ActionResult<UserDTOs>> Login(LoginDTos loginUserParam)
+    public async Task<ActionResult<UserDTOs>> Login(LoginDTos loginDTos)
     {
-        var user = await _context.Users.SingleOrDefaultAsync(u => u.UserName == loginUserParam.Username);
+        var user = await _context.Users.SingleOrDefaultAsync(u => u.UserName == loginDTos.Username);
 
         if (user == null) return Unauthorized("user does not exist");
 
+        Console.WriteLine(user.UserName);
         using var hmac = new HMACSHA512(user.passwordSalt);
 
-        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginUserParam.Password));
+        var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(loginDTos.Password));
 
         for (int i = 0; i < computedHash.Length; i++)
         {

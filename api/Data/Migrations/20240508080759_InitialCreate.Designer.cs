@@ -10,8 +10,8 @@ using api.Data;
 namespace api.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240505100825_passwordhash")]
-    partial class passwordhash
+    [Migration("20240508080759_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
