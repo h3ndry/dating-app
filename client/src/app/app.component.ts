@@ -5,11 +5,11 @@ import { RouterOutlet } from '@angular/router';
 import { NavComponent } from "./nav/nav.component";
 
 @Component({
-    selector: 'app-root',
-    standalone: true,
-    templateUrl: './app.component.html',
-    styleUrl: './app.component.css',
-    imports: [RouterOutlet, HttpClientModule, CommonModule, NavComponent]
+  selector: 'app-root',
+  standalone: true,
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css',
+  imports: [RouterOutlet, HttpClientModule, CommonModule, NavComponent]
 })
 
 export class AppComponent implements OnInit {
