@@ -48,8 +48,8 @@ Content-Type: application/json
 POST {{api_HostAddress}}/api/account/login
 Content-Type: application/json
 {
-    "userName": "newuser",
-    "password": "password$1"
+    "userName": "tomm",
+    "password": "strong_password"
 }
 
 

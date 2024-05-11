@@ -1,0 +1,29 @@
+<section class="jumbotron text-center mt-5">
+  <div class="container" *ngIf="!registerMode">
+    <h1 class="jumbotron-heading">Welcome To Dating App</h1>
+    <p class="lead text-muted">
+      Discover your perfect match with our collection of profiles below. Learn
+      more about our creators and the features of our app. Find love and
+      companionship today.
+    </p>
+    <p>
+      <button (click)="toggleRegisterMode()" class="btn btn-primary my-2 me-2">
+        Register
+      </button>
+      <button href="#" class="btn btn-secondary my-2">Learn More</button>
+    </p>
+  </div>
+
+  <div class="container" *ngIf="registerMode">
+    <app-register (cancelRegister)="cancelRegisterMode($event)"></app-register>
+  </div>
+
+  <footer class="my-5 pt-5 text-body-secondary text-center text-small">
+    <p class="mb-1">© 2017–2024 Company Name</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</section>

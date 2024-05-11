@@ -3,19 +3,36 @@
     <a class="navbar-brand" href="#">Dating App</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <ul
+        class="navbar-nav me-auto mb-2 mb-lg-0"
+        *ngIf="accountServices.currentUser$ | async"
+      >
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link active" aria-current="page" href="#">Matches</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+          <a class="nav-link active" aria-current="page" href="#">List</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Messages</a>
         </li>
       </ul>
 
+      <div *ngIf="accountServices.currentUser$ | async" class="">
+        <div ngbDropdown class="d-inline-block">
+          <a class="" id="dropdownBasic1" ngbDropdownToggle> Welcom User </a>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+            <button ngbDropdownItem>Edit Profile</button>
+            <button ngbDropdownItem (click)="logout()">logout</button>
+          </div>
+        </div>
+      </div>
+
       <form
+        *ngIf="!(accountServices.currentUser$ | async)"
         #loginForm="ngForm"
         (ngSubmit)="login()"
-        class="d-flex"
+        class="d-flex ml-auto"
         role="search"
         autocomplete="off"
       >

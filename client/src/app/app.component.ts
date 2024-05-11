@@ -3,28 +3,32 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from "./nav/nav.component";
+import { AccountService } from './_services/account.service';
+import { User } from './_models/user';
+import { HomeComponent } from "./home/home.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
-  imports: [RouterOutlet, HttpClientModule, CommonModule, NavComponent]
+  imports: [RouterOutlet, HttpClientModule, CommonModule, NavComponent, HomeComponent]
 })
 
 export class AppComponent implements OnInit {
   title = 'client';
   users: any
 
-  constructor(private http: HttpClient) {
-
-  }
+  constructor(private accountService: AccountService) { }
   ngOnInit(): void {
-    this.http.get('http://localhost:5276/api/users').subscribe({
-      next: response => this.users = response,
-      error: (error) => console.log(error),
-      complete: () => console.log('request it is complet')
-    })
+    this.setCurrentUser();
+  }
+
+  setCurrentUser() {
+    const userString = localStorage.getItem('user')
+    if (!userString) return
+    const user: User = JSON.parse(userString)
+    this.accountService.setCurrentUser(user)
   }
 
 }
