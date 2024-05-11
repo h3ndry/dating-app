@@ -5,11 +5,13 @@ import { CommonModule } from '@angular/common';
 import { NgbDropdownModule } from '@ng-bootstrap/ng-bootstrap';
 import { Observable, of } from 'rxjs';
 import { User } from '../_models/user';
+import { Router, RouterModule } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-nav',
   standalone: true,
-  imports: [FormsModule, CommonModule, NgbDropdownModule],
+  imports: [FormsModule, CommonModule, NgbDropdownModule, RouterModule],
   templateUrl: './nav.component.html',
   styleUrl: './nav.component.css'
 })
@@ -19,7 +21,11 @@ export class NavComponent implements OnInit {
   // isLoggedIn = false;
   // currentUser$: Observable<User | null> = of(null)
 
-  constructor(public accountServices: AccountService) { }
+  constructor(
+    public accountServices: AccountService,
+    private router: Router,
+    private toaster: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -33,16 +39,14 @@ export class NavComponent implements OnInit {
 
   login() {
     this.accountServices.login(this.model).subscribe({
-      next: response => {
-        console.log(response)
-        // this.isLoggedIn = true;
-      },
-      error: error => console.log(error)
+      next: _ => this.router.navigateByUrl('/members'),
+      error: error => this.toaster.error(error.error)
     })
   }
 
   logout() {
     this.accountServices.logout()
+    this.router.navigateByUrl('/')
     // this.isLoggedIn = false
   }
 

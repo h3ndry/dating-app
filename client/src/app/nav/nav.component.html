@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container">
-    <a class="navbar-brand" href="#">Dating App</a>
+    <a class="navbar-brand" routerLink="/">Dating App</a>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul
@@ -8,19 +8,24 @@
         *ngIf="accountServices.currentUser$ | async"
       >
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Matches</a>
+          <a class="nav-link" routerLink="/members">Matches</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/lists"
+            >Lists</a
+          >
         </li>
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">List</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Messages</a>
+          <a class="nav-link" routerLink="/messages">Messages</a>
         </li>
       </ul>
 
-      <div *ngIf="accountServices.currentUser$ | async" class="">
+      <div *ngIf="accountServices.currentUser$ | async as user" class="">
         <div ngbDropdown class="d-inline-block">
-          <a class="" id="dropdownBasic1" ngbDropdownToggle> Welcom User </a>
+          <a class="" id="dropdownBasic1" ngbDropdownToggle>
+            Welcom {{ user.username }}
+          </a>
           <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
             <button ngbDropdownItem>Edit Profile</button>
             <button ngbDropdownItem (click)="logout()">logout</button>
