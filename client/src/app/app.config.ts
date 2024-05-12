@@ -6,15 +6,22 @@ import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideToastr } from 'ngx-toastr';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
+import { loggingInterceptor } from './_interceptores/error.interceptor';
+// import { errorInterceptor } from './_interceptores/error.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+
     provideRouter(routes),
-    provideHttpClient(),
-    provideAnimations(), // required animations providers
+
+    provideHttpClient(
+      withInterceptors([loggingInterceptor])
+    ),
+
+    provideAnimations(),
     provideToastr({
       positionClass: 'toast-bottom-right'
-    }), // T
+    }),
   ]
 };

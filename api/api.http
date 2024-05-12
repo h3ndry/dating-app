@@ -54,6 +54,24 @@ Content-Type: application/json
 
 
 
+GET {{api_HostAddress}}/api/buggy/auth
+
+GET {{api_HostAddress}}/api/buggy/not-found
+
+GET {{api_HostAddress}}/api/buggy/server-error
+
+GET {{api_HostAddress}}/api/buggy/bad-request
+
+GET {{api_HostAddress}}/api/buggy/bad-request
+
+
+POST {{api_HostAddress}}/api/account/register
+Content-Type: application/json
+{
+    "userName": "a",
+    "password": "b$1"
+}
+
 
 
 
