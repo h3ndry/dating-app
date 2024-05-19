@@ -2,6 +2,7 @@
 using System.Text;
 using api.Data;
 using api.DTOs;
+using api.Entities;
 using api.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;

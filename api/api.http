@@ -1,21 +1,19 @@
 
-api_HostAddress = http://localhost:5276
-
-
 GET http://localhost:5276/weatherforecast/
 Content-Type: application/json
 
 
-GET {{api_HostAddress}}/api/users
+GET {{URL}}/api/users
+Content-Type: application/json
+Authorization: Bearer {{TOKEN}}
+
+
+GET {{URL}}/api/users/5
+Authorization: Bearer {{TOKEN}}
 Content-Type: application/json
 
 
-GET {{api_HostAddress}}/api/users/5
-Content-Type: application/json
-
-
-
-POST {{api_HostAddress}}/api/account/register
+POST {{URL}}/api/account/register
 Content-Type: application/json
 {
     "userName": "John",
@@ -23,29 +21,29 @@ Content-Type: application/json
 }
 
 
-POST {{api_HostAddress}}/api/account/register
+POST {{URL}}/api/account/register
 Content-Type: application/json
 {
     "userName": "tomm",
     "password": "strong_password"
 }
 
-POST  {{api_HostAddress}}/api/account/login
+POST  {{URL}}/api/account/login
 Content-Type: application/json
 {
-    "userName": "tomm",
-    "password": "strong_password"
+    "userName": "lisa",
+    "password": "Pa$$word"
 }
 
 
-POST {{api_HostAddress}}/api/account/register
+POST {{URL}}/api/account/register
 Content-Type: application/json
 {
     "userName": "newUser",
     "password": "password$1"
 }
 
-POST {{api_HostAddress}}/api/account/login
+POST {{URL}}/api/account/login
 Content-Type: application/json
 {
     "userName": "tomm",
@@ -54,18 +52,18 @@ Content-Type: application/json
 
 
 
-GET {{api_HostAddress}}/api/buggy/auth
+GET {{URL}}/api/buggy/auth
 
-GET {{api_HostAddress}}/api/buggy/not-found
+GET {{URL}}/api/buggy/not-found
 
-GET {{api_HostAddress}}/api/buggy/server-error
+GET {{URL}}/api/buggy/server-error
 
-GET {{api_HostAddress}}/api/buggy/bad-request
+GET {{URL}}/api/buggy/bad-request
 
-GET {{api_HostAddress}}/api/buggy/bad-request
+GET {{URL}}/api/buggy/bad-request
 
 
-POST {{api_HostAddress}}/api/account/register
+POST {{URL}}/api/account/register
 Content-Type: application/json
 {
     "userName": "a",

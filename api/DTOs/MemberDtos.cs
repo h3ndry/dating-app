@@ -1,31 +1,23 @@
-﻿using api.Extensions;
+namespace api.DTOs;
 
-namespace api.Entities;
-
-public class AppUser
+public class MemberDtos
 {
+
     public int Id { get; set; }
     public string UserName { get; set; }
-    public byte[] passwordHash { get; set; }
-    public byte[] passwordSalt { get; set; }
-
-    public DateOnly DateOfBirth { get; set; }
+    public int Age { get; set; }
     public string KnownAs { get; set; }
-    public DateTime Created { get; set; } = DateTime.UtcNow;
+    public DateTime Created { get; set; }
     public DateTime LastActive { get; set; }
     public string Gender { get; set; }
+    public string PhotoUrl { get; set; }
     public string Introduction { get; set; }
     public string LookingFor { get; set; }
     public string Intrest { get; set; }
     public string City { get; set; }
     public string Country { get; set; }
-    public List<Photo> Photos { get; set; } = new();
+    public List<PhotoDtos> Photos { get; set; }
 
-
-    public int GetAge()
-    {
-        return DateOfBirth.CalculateAge();
-
-    }
 
 }
+

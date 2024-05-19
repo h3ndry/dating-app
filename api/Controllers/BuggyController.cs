@@ -1,4 +1,5 @@
 ﻿using api.Data;
+using api.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
