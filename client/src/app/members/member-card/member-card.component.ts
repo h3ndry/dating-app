@@ -5,11 +5,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'app-memeber-card',
+  selector: 'app-member-card',
   standalone: true,
   imports: [CommonModule, FontAwesomeModule],
-  templateUrl: './memeber-card.component.html',
-  styleUrl: './memeber-card.component.css'
+  templateUrl: './member-card.component.html',
+  styleUrl: './member-card.component.css'
 })
 export class MemeberCardComponent {
   @Input() member: Member | undefined
