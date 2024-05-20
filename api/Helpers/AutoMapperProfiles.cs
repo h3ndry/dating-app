@@ -12,7 +12,7 @@ public class AutoMapperProfiles : Profile
         CreateMap<AppUser, MemberDtos>()
             .ForMember(
                 dest => dest.PhotoUrl,
-                opts => opts.MapFrom(src => "Testing")
+                opts => opts.MapFrom(src => src.Photos.FirstOrDefault(x => x.IsMain).Url)
                 );
         CreateMap<Photo, PhotoDtos>();
 

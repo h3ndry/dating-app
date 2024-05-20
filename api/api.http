@@ -3,8 +3,9 @@ GET http://localhost:5276/weatherforecast/
 Content-Type: application/json
 
 
-GET {{URL}}/api/users
 Content-Type: application/json
+# Authorization: Bearer {{TOKEN}}
+GET {{URL}}/api/users
 Authorization: Bearer {{TOKEN}}
 
 
