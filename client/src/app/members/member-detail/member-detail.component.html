@@ -1,1 +1,64 @@
-<p>member-detail works!</p>
+<div *ngIf="member" class="row">
+  <div class="col-4">
+    <div class="card">
+      <h1>{{ member.knownAs }}</h1>
+      <img
+        src="{{ member.photoUrl || './assets/user.png' }}"
+        alt="{{ member.knownAs }}"
+        class="card-img-top img-thumnail"
+      />
+
+      <div class="card-body">
+        <div class="">
+          <strong>Location:</strong>
+          <p>{{ member.city }}, {{ member.country }}</p>
+        </div>
+
+        <div class="">
+          <strong>Age:</strong>
+          <p>{{ member.age }}</p>
+        </div>
+
+        <div class="">
+          <strong>Last Active:</strong>
+          <p>{{ member.lastActive }}</p>
+        </div>
+
+        <div class="">
+          <strong>Member Since:</strong>
+          <p>{{ member.created }}</p>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <div class="btn-group d-flex">
+          <button class="btn btn-secondary">Like</button>
+          <button class="btn btn-primary">Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div>
+      <tabset>
+        <tab heading="About {{ member.knownAs }}" id="tab1">
+          <h4>Desceription</h4>
+          <p>{{ member.introduction }}</p>
+        </tab>
+
+        <tab heading="Intrests">
+          <h4>Intrests</h4>
+          <p>{{ member.intrest }}</p>
+        </tab>
+
+        <tab heading="Photos" #photoTab="tab">
+          <gallery *ngIf="photoTab.active" [items]="images"></gallery>
+        </tab>
+
+        <tab heading="Message Gooes">
+          <h4>Messages will go here</h4>
+        </tab>
+      </tabset>
+    </div>
+  </div>
+</div>

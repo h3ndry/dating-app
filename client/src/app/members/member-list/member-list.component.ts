@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Member } from '../../_models/member';
 import { MembersService } from '../../_services/members.service';
 import { CommonModule } from '@angular/common';
-import { MemeberCardComponent } from "../memeber-card/memeber-card.component";
+import { MemeberCardComponent } from "../member-card/member-card.component";
 
 @Component({
     selector: 'app-member-list',
