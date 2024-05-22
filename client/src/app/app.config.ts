@@ -10,17 +10,18 @@ import { routes } from './app.routes';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { loggingInterceptor } from './_interceptor/error.interceptor';
 import { jwtInterceptor } from './_interceptor/jwt.interceptor';
+import { loadingInterceptor } from './_interceptor/loading.interceptor';
 export const appConfig: ApplicationConfig = {
   providers: [
 
     provideRouter(routes),
 
     provideHttpClient(
-      withInterceptors([loggingInterceptor, jwtInterceptor])
+      withInterceptors([loggingInterceptor, jwtInterceptor, loadingInterceptor])
     ),
 
     provideAnimations(),
-// TabsModule.forRoot(),
+    // TabsModule.forRoot(),
 
     provideToastr({
       positionClass: 'toast-bottom-right'

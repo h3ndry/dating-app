@@ -9,4 +9,5 @@
 - [ ] Show server error when registering new user
 - [ ] show server error on page
 - [ ] change how I select the user to use where close and auto mapper for
+- [ ] fix update the member profile
 injection
